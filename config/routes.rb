@@ -1,18 +1,29 @@
 Rails.application.routes.draw do
+  get "users/show"
+  # Replace individual book routes with resources
+  resources :books, only: [:index, :show] do
+    member do
+      post :borrow
+      post :return
+    end
+  end
+
+  # Authentication routes
   resource :session
   resource :registration, only: %i[new create]
   resources :passwords, param: :token
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health check route
   get "up" => "rails/health#show", as: :rails_health_check
 
-   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  # PWA routes (commented out)
+  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-   # Defines the root path route ("/")
-   root "pages#home"
-   get "dashboard", to: "pages#dashboard"
+  # Root and dashboard routes
+  root "pages#home"
+  get "dashboard", to: "pages#dashboard"
+
+  # User profile route
+  resources :users, only: [:show]
 end
