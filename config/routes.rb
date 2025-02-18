@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   # Replace individual book routes with resources
   resources :books, only: [:index, :show] do
     member do
-      post :borrow
-      post :return
+      get :borrow
+      post :create_borrowing
+      get :return
+      post :complete_return
     end
   end
 

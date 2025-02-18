@@ -1,4 +1,26 @@
-<div>
-  <h1 class="font-bold text-4xl">Books#borrow</h1>
-  <p>Find me in app/views/books/borrow.html.erb</p>
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl mb-6">Borrow Book</h1>
+  
+  <div class="bg-white p-6 rounded-lg border mb-6">
+    <h2 class="text-2xl font-semibold"><%= @book.title %></h2>
+    <p class="text-xl text-gray-600">by <%= @book.author %></p>
+    <p class="text-sm text-gray-500 mt-2">ISBN: <%= @book.isbn %></p>
+  </div>
+  
+  <div class="bg-white p-6 rounded-lg border">
+    <h3 class="text-xl font-semibold mb-4">Confirm Borrowing</h3>
+    
+    <p class="mb-4">
+      You are about to borrow "<%= @book.title %>" by <%= @book.author %>.
+      The book will be due on <%= @borrowing.due_date.strftime("%B %d, %Y") %>.
+    </p>
+    
+    <div class="flex space-x-4 mt-6">
+      <%= button_to "Confirm Borrowing", create_borrowing_book_path(@book), method: :post,
+          class: "rounded-md px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium" %>
+      
+      <%= link_to "Cancel", book_path(@book), 
+          class: "rounded-md px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white font-medium" %>
+    </div>
+  </div>
 </div>

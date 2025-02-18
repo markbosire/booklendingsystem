@@ -19,8 +19,12 @@
         <div class="mt-3 flex justify-between items-center">
           <%= link_to "View Details", book_path(book), class: "text-blue-600 hover:underline" %>
           
-          <% if book.borrowings.where(due_date: Time.current..).exists? %>
-            <span class="px-2 py-1 bg-red-100 text-red-800 rounded-md text-sm">Currently Borrowed</span>
+          <% if borrowing = book.borrowings.where("due_date > ?", Time.current).find_by(user: Current.user) %>
+            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-md text-sm">
+              Borrowed by you (Due: <%= borrowing.due_date.strftime("%b %d") %>)
+            </span>
+          <% elsif book.borrowings.where("due_date > ?", Time.current).exists? %>
+            <span class="px-2 py-1 bg-red-100 text-red-800 rounded-md text-sm">Borrowed by another user</span>
           <% else %>
             <span class="px-2 py-1 bg-green-100 text-green-800 rounded-md text-sm">Available</span>
           <% end %>
