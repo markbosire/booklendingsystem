@@ -1,4 +1,42 @@
-<div>
-  <h1 class="font-bold text-4xl">Books#show</h1>
-  <p>Find me in app/views/books/show.html.erb</p>
+# app/views/books/show.html.erb
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl mb-6"><%= @book.title %></h1>
+  
+  <% if notice = flash[:notice] %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block"><%= notice %></p>
+  <% end %>
+  
+  <% if alert = flash[:alert] %>
+    <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block"><%= alert %></p>
+  <% end %>
+  
+  <div class="bg-white p-6 rounded-lg border">
+    <div class="mb-4">
+      <h2 class="text-2xl font-semibold"><%= @book.title %></h2>
+      <p class="text-xl text-gray-600">by <%= @book.author %></p>
+      <p class="text-sm text-gray-500 mt-2">ISBN: <%= @book.isbn %></p>
+    </div>
+    
+    <div class="mt-6">
+      <% if borrowing = @book.borrowings.find_by(user: Current.user, due_date: Time.current..) %>
+        <div class="mb-4">
+          <span class="px-3 py-1.5 bg-yellow-100 text-yellow-800 rounded-md">
+            You have borrowed this book (Due: <%= borrowing.due_date.strftime("%B %d, %Y") %>)
+          </span>
+        </div>
+        <%= button_to "Return Book", return_book_path(@book), method: :post, 
+            class: "rounded-md px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium" %>
+      <% elsif @book.borrowings.where(due_date: Time.current..).exists? %>
+        <span class="px-3 py-1.5 bg-red-100 text-red-800 rounded-md">Currently Borrowed</span>
+      <% else %>
+        <%= button_to "Borrow Book", borrow_book_path(@book), method: :post, 
+            class: "rounded-md px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium" %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="mt-8 flex space-x-4">
+    <%= link_to "Back to Books", books_path, class: "rounded-md px-3.5 py-2.5 bg-gray-600 hover:bg-gray-500 text-white font-medium" %>
+    <%= link_to "Back to Dashboard", dashboard_path, class: "rounded-md px-3.5 py-2.5 bg-gray-600 hover:bg-gray-500 text-white font-medium" %>
+  </div>
 </div>
