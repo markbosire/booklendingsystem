@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
-	def home
-	end
+  allow_unauthenticated_access only: :home
+  def home
+  end
 
-	def dashboard
-	end
+  def dashboard
+  end
 end
