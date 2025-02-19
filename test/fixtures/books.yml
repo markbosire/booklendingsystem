@@ -1,11 +1,10 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+# test/fixtures/books.yml
 one:
-  title: MyString
-  author: MyString
-  isbn: MyString
+  title: "Test Book"
+  author: "Test Author"
+  isbn: "1234567890"
 
 two:
-  title: MyString
-  author: MyString
-  isbn: MyString
+  title: "Another Book"
+  author: "Another Author"
+  isbn: "0987654321"

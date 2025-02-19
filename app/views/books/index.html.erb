@@ -1,4 +1,8 @@
 <div class="mx-auto md:w-2/3 w-full">
+
+  <div class="mb-8 mt-8">
+    <%= link_to "Back to Dashboard", dashboard_path, class: "rounded-md px-3.5 py-2.5 bg-gray-600 hover:bg-gray-500 text-white font-medium" %>
+  </div>
   <h1 class="font-bold text-4xl mb-6">Library Books</h1>
   
   <% if notice = flash[:notice] %>
@@ -32,8 +36,5 @@
       </div>
     <% end %>
   </div>
-  
-  <div class="mt-8">
-    <%= link_to "Back to Dashboard", dashboard_path, class: "rounded-md px-3.5 py-2.5 bg-gray-600 hover:bg-gray-500 text-white font-medium" %>
-  </div>
+
 </div>

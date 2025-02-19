@@ -8,3 +8,174 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ /* Tailwind was not being responsive on mobile */
+/* Base styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.logo-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  color: #9ca3af;
+}
+
+.logo-section i {
+  font-size: 1.25rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 0.875rem;
+  color: #374151;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #111827;
+}
+
+.nav-link i {
+  margin-right: 0.5rem;
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 100;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background-color: #374151;
+  transition: all 0.3s ease;
+}
+
+/* Animated hamburger */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Main content styles */
+.main-content {
+  padding: 2rem;
+}
+
+.main-content h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.book-grid {
+   display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  /* Mobile: 1 column */
+  grid-template-columns: 1fr;
+}
+
+.book-card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #000;
+}
+
+.book-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.book-author, .book-isbn {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.book-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.book-link:hover {
+  text-decoration: underline;
+}
+@media (min-width: 640px) {
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Medium screens: 3 columns */
+@media (min-width: 768px) {
+  .book-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-content {
+  padding: 1rem;
+}
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+  }
+
+  .nav-links.show {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,4 +1,4 @@
-require "test_helper"
+require "model_test_helper"
 
 class SessionTest < ActiveSupport::TestCase
   def setup

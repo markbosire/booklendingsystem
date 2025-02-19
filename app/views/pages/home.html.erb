@@ -1,4 +1,23 @@
-<div class="space-y-12">
-	<h1>Home</h1>
-	 <%= link_to 'Login', new_session_path %>
+<div class="min-h-screen bg-gray-50 flex items-center justify-center px-4 min-w-screen">
+  <div class="max-w-2xl text-center space-y-8">
+    <!-- Main Heading -->
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-800">
+      Welcome to the Book Lending System
+    </h1>
+
+    <!-- Login Button -->
+    <div class="mt-8">
+      <%= link_to new_session_path, class: "inline-flex items-center px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-sm" do %>
+        <i class='bx bx-log-in-circle text-xl mr-2'></i>
+        Start Your Reading Journey
+      <% end %>
+    </div>
+
+    <!-- Decorative Book Icons -->
+    <div class="mt-12 flex justify-center space-x-6 text-gray-400">
+      <i class='bx bx-book-open text-4xl'></i>
+      <i class='bx bx-library text-4xl'></i>
+      <i class='bx bx-bookmark text-4xl'></i>
+    </div>
+  </div>
 </div>

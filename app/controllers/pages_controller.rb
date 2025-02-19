@@ -8,6 +8,8 @@ class PagesController < ApplicationController
 
 def dashboard
   redirect_to new_session_path unless authenticated?
-  @recent_books = Book.order(created_at: :desc).limit(5)
+  @recent_books = Book.order(created_at: :desc).limit(12)
 end
+
+
 end
