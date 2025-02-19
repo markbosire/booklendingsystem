@@ -27,33 +27,11 @@
 
 Before starting the installation, ensure your system meets these requirements:
 
-- **Operating System**: Linux, macOS, or Windows with WSL2
 - **System Dependencies**:
-  - Node.js 18.0 or higher
-  - Yarn 1.22 or higher
+  - Node.js 
+  - Yarn 
   - Git
-  - SQLite3 development libraries
-  - C++ compiler and development tools
-- **Hardware Requirements**:
-  - Minimum 4GB RAM
-  - 2GB free disk space
-  - Modern processor (2 cores recommended)
 
-### System-specific Prerequisites Installation
-
-**Ubuntu/Debian:**
-```bash
-sudo apt-get update
-sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn
-```
-
-**macOS (using Homebrew):**
-```bash
-brew install git node yarn sqlite3
-```
-
-**Windows (using WSL2):**
-Follow the Ubuntu/Debian instructions after setting up WSL2.
 
 ## **Clone the Repository**
 First, clone the existing Ruby on Rails project repository to your local machine.
