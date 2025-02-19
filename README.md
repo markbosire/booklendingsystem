@@ -114,7 +114,7 @@ By default, the server will run on `http://localhost:3000`.
 
 ## **Run Tests**
 
-⚠️ **Note:** System wide tests with `rails test` will since capybara tests with Selenium have not been configured in this project you have to specify the test folders as shown below.
+⚠️ **Note:** System wide tests with `rails test` will not work since capybara tests with Selenium have not been configured in this project you have to specify the test folders as shown below.
 
 ```bash
 rails test test/models
