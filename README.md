@@ -11,13 +11,13 @@
 
 ## 📌 Table of Contents
 1. [Prerequisites](#prerequisites)
-2. [Clone the Repository](#1-clone-the-repository)
-3. [Install Ruby and Rails 8](#2-install-ruby-and-rails-8)
-4. [Install Bundler](#3-install-bundler)
-5. [Install Dependencies](#4-install-dependencies)
-6. [Set Up the Database](#5-set-up-the-database)
-7. [Start the Rails Server](#6-start-the-rails-server)
-8. [Run Tests](#7-run-tests-optional)
+2. [Clone the Repository](#clone-the-repository)
+3. [Install Ruby and Rails 8](#install-ruby-and-rails-8)
+4. [Install Bundler](#install-bundler)
+5. [Install Dependencies](#install-dependencies)
+6. [Set Up the Database](#set-up-the-database)
+7. [Start the Rails Server](#start-the-rails-server)
+8. [Run Tests](#run-tests)
 9. [Common Issues & Solutions](#common-issues--solutions)
 10. [Getting Started](#getting-started)
 
