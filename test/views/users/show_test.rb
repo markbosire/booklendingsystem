@@ -1,5 +1,5 @@
 # test/views/users/show_test.rb
-require 'test_helper'
+require "test_helper"
 
 class UsersShowTest < ActionView::TestCase
   include Rails.application.routes.url_helpers
@@ -39,7 +39,7 @@ class UsersShowTest < ActionView::TestCase
     end
   end
 
-require 'test_helper'
+require "test_helper"
 
 class UsersShowTest < ActionView::TestCase
   include Rails.application.routes.url_helpers
@@ -85,7 +85,7 @@ class UsersShowTest < ActionView::TestCase
       email_address: "no_books@example.com",
       password: "password123"
     )
-    
+
     @view_assigns = { user: user_without_books, current_user: user_without_books }
     render template: "users/show", assigns: @view_assigns
 

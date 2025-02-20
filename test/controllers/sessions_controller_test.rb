@@ -1,10 +1,10 @@
-require 'test_helper'
+require "test_helper"
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   include SignInHelper
 
   setup do
-    @user = users(:one)  
+    @user = users(:one)
   end
 
   test "should get new session page" do

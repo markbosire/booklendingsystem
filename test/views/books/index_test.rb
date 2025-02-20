@@ -1,17 +1,17 @@
 # test/views/books/index_test.rb
-require 'test_helper'
+require "test_helper"
 
 class BooksIndexTest < ActionView::TestCase
   include Rails.application.routes.url_helpers
 
   setup do
     @user = users(:one)
-    @books = [books(:one), books(:two)]
+    @books = [ books(:one), books(:two) ]
     @borrowing = borrowings(:one)
-    
- 
-    
-    @view_assigns = { 
+
+
+
+    @view_assigns = {
       books: @books,
       borrowing: @borrowing,
       current_user: @user
@@ -22,7 +22,7 @@ class BooksIndexTest < ActionView::TestCase
     # Set up flash messages
     flash[:notice] = "Test notice"
     flash[:alert] = "Test alert"
-    
+
     render template: "books/index", assigns: @view_assigns
 
     assert_select "h1", text: "Library Books" do
@@ -71,11 +71,11 @@ class BooksIndexTest < ActionView::TestCase
   test "displays correct borrowing status for books" do
     # Book borrowed by current user
     @borrowing.update!(user: @user, due_date: 2.week.from_now)
-    
+
     # Book borrowed by another user
     other_borrowing = borrowings(:two)
     other_borrowing.update!(user: users(:two), due_date: 2.week.from_now)
-    
+
     render template: "books/index", assigns: @view_assigns
 
     # Test book borrowed by another user
@@ -86,11 +86,11 @@ class BooksIndexTest < ActionView::TestCase
     # Reset borrowings to test available status
     @borrowing.update!(due_date: 1.day.ago)
     other_borrowing.update!(due_date: 1.day.ago)
-    
+
     render template: "books/index", assigns: @view_assigns
 
     assert_select "span.bg-green-100", "Available" do
-      puts "✅ 'Available' status displayed correctly" 
+      puts "✅ 'Available' status displayed correctly"
     end
   end
 

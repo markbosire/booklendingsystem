@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class RegistrationsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -12,7 +12,7 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
   test "should get new registration page" do
     get new_registration_path
     assert_response :success
-    assert_select "h1", "Sign Up" 
+    assert_select "h1", "Sign Up"
     puts "✅ should get new registration page"
   end
 

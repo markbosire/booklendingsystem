@@ -25,30 +25,20 @@ end
 module SignInHelper
     SIGNED_COOKIE_SALT = "signed cookie"
   def login_as(user)
-    # First, get the authentication token through login
+  # First, get the authentication token through login
   cookies[:session_id] = Rails.application.message_verifier(SIGNED_COOKIE_SALT).generate(user.sessions.create.id)
-
-
   end
-
-
 end
 
 
 class ActionDispatch::IntegrationTest
-
   parallelize(workers: 1)
   include SignInHelper
 
-  
+
   setup do
     host! "test.host"
   end
-  
- 
-
-
-
 end
 
 class ActiveSupport::TestCase
@@ -57,6 +47,6 @@ class ActiveSupport::TestCase
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
-  
+
   # Add more helper methods to be used by all tests here...
 end

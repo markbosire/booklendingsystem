@@ -1,5 +1,5 @@
 # test/views/books/borrow_test.rb
-require 'test_helper'
+require "test_helper"
 
 class BooksBorrowTest < ActionView::TestCase
   include Rails.application.routes.url_helpers
@@ -8,10 +8,10 @@ class BooksBorrowTest < ActionView::TestCase
     @book = books(:one)
     @user = users(:one)
     @borrowing = borrowings(:one)
-    @view_assigns = { 
-      book: @book, 
+    @view_assigns = {
+      book: @book,
       borrowing: @borrowing,
-      current_user: @user 
+      current_user: @user
     }
   end
 
@@ -65,11 +65,9 @@ class BooksBorrowTest < ActionView::TestCase
     assert_select "div.mx-auto" do
       puts "✅ Main container styling applied correctly"
     end
-    
+
     assert_select "div.md\\:w-2\\/3" do
       puts "✅ Responsive width styling applied correctly"
     end
   end
-
- 
 end

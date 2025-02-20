@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get "users/show"
   # Replace individual book routes with resources
-  resources :books, only: [:index, :show] do
+  resources :books, only: [ :index, :show ] do
     member do
       get :borrow
       post :create_borrowing
@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
 
   # User profile route
-  resources :users, only: [:show]
+  resources :users, only: [ :show ]
 end

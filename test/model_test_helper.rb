@@ -22,13 +22,13 @@ class ActiveSupport::TestCase
 
   def clean_database
     # Clear dependent tables first to avoid foreign key constraint errors
-    dependent_models = [Session, Borrowing]  # Replace with models that reference other models
+    dependent_models = [ Session, Borrowing ]  # Replace with models that reference other models
     dependent_models.each do |model|
       model.delete_all
     end
 
     # Clear parent tables after dependent tables
-    parent_models = [User, Book]  # Replace with models that are referenced by others
+    parent_models = [ User, Book ]  # Replace with models that are referenced by others
     parent_models.each do |model|
       model.delete_all
     end

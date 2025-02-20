@@ -1,12 +1,12 @@
-require 'test_helper'
+require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   include SignInHelper
 
   setup do
-    @user = users(:one)  
-    @book = books(:one) 
-    @borrowing = borrowings(:one)  
+    @user = users(:one)
+    @book = books(:one)
+    @borrowing = borrowings(:one)
   end
 
   test "should get user profile page" do

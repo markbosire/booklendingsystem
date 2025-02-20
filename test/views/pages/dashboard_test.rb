@@ -22,10 +22,9 @@ class PagesDashboardTest < ActionDispatch::IntegrationTest
       assert_select "i.bx-book"
       assert_select "span", text: "View All Books"
       assert_select "i.bx-user"
-  
     end
 
-  
+
 
     puts "✅ Navbar rendered correctly"
   end
@@ -42,7 +41,4 @@ class PagesDashboardTest < ActionDispatch::IntegrationTest
     assert_select "p", text: /Welcome, #{@user.email_address}!/
     puts "✅ Welcome message displayed correctly"
   end
-
-
-
 end

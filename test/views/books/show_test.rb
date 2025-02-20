@@ -1,5 +1,5 @@
 # test/views/books/show_test.rb
-require 'test_helper'
+require "test_helper"
 
 class BooksShowTest < ActionView::TestCase
   include Rails.application.routes.url_helpers
@@ -58,16 +58,16 @@ class BooksShowTest < ActionView::TestCase
   end
 
   test "displays flash notice and alert messages correctly" do
-    # Simulate a flash notice
+     # Simulate a flash notice
      flash[:notice] = "Test notice"
     flash[:alert] = "Test alert"
     render template: "books/show", assigns: @view_assigns
-    
+
     assert_select "p", text: "Test notice" do
       puts "✅ Flash notice displayed correctly"
     end
 
-    
+
     render template: "books/show", assigns: @view_assigns
 
     assert_select "p", text: "Test alert" do

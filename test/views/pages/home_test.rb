@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class HomePagesTest < ActionView::TestCase
   include Rails.application.routes.url_helpers

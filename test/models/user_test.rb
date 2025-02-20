@@ -3,8 +3,8 @@ require "model_test_helper"
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(email_address: "john@example.com", 
-                     password: "password", 
+    @user = User.new(email_address: "john@example.com",
+                     password: "password",
                      password_confirmation: "password")
   end
 
@@ -85,7 +85,7 @@ class UserTest < ActiveSupport::TestCase
   test "should destroy dependent sessions when user is destroyed" do
     @user.save
     @user.sessions.create!
-    assert_difference 'Session.count', -1 do
+    assert_difference "Session.count", -1 do
       @user.destroy
     end
     puts "✅ User destroys dependent sessions"

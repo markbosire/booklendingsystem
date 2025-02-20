@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class RegistrationsNewTest < ActionView::TestCase
   include Rails.application.routes.url_helpers
@@ -77,7 +77,7 @@ class RegistrationsNewTest < ActionView::TestCase
   test "renders flash messages when present" do
     flash[:alert] = "Test alert message"
     flash[:notice] = "Test notice message"
-    
+
     render template: "registrations/new", assigns: @view_assigns
 
     assert_select "div#alert.bg-red-100.text-red-600" do
@@ -96,7 +96,7 @@ class RegistrationsNewTest < ActionView::TestCase
   test "renders validation errors when present" do
     @user.errors.add(:email_address, "can't be blank")
     @user.errors.add(:password, "is too short")
-    
+
     render template: "registrations/new", assigns: @view_assigns
 
     assert_select "div.bg-red-50.text-red-500" do

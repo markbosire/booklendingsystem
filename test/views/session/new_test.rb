@@ -1,5 +1,5 @@
 # test/views/sessions/new_test.rb
-require 'test_helper'
+require "test_helper"
 
 class SessionsNewTest < ActionView::TestCase
   include Rails.application.routes.url_helpers
@@ -21,10 +21,9 @@ class SessionsNewTest < ActionView::TestCase
   end
 
   test "renders flash alert message correctly" do
- 
     flash[:alert] = "Invalid email or password"
     # Simulate a flash alert
- 
+
     render template: "sessions/new", assigns: @view_assigns
 
     # Check if the alert message is displayed correctly

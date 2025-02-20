@@ -1,10 +1,10 @@
-require 'test_helper'
+require "test_helper"
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
   include SignInHelper
 
   setup do
-    @user = users(:one)  
+    @user = users(:one)
   end
 
   test "should redirect to dashboard if authenticated" do
